@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OVOS/Hivemind webchat client</title>
+    <!-- JavaScript libraries -->
+    <script src="/js/asmcrypto.js"></script>
+    <script src="js/webcrypto-shim.js"></script>
+    <script src="js/hivemind.js"></script>
+    <script src="js/chat.js" defer></script> <!-- use 'defer' to load it after HTML -->
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- Logo -->
+<div id="logo">
+    <img src="https://www.openvoiceos.org/_next/static/media/logo.02220a9b.png" alt="OVOS logo" class="centered-logo">
+</div>
+
+<!-- Login container -->
+<div id="loginContainer">
+    <h2>Login</h2>
+    <input type="text" id="name" placeholder="What's your name?">
+    <input type="text" id="key" placeholder="Enter your username" required>
+    <input type="password" id="crypto_key" placeholder="Enter your password" required>
+    <div id="rememberContainer">
+        <input type="checkbox" id="rememberMe">
+        <label for="rememberMe">Remember username and password</label>
+    </div>
+    <button id="loginButton">Login</button>
+</div>
+
+<!-- Chat container -->
+<div id="chatContainer" style="display: none;">
+    <h1><div id="chatTitle">Welcome to the OVOS/ Hivemind webchat!</div></h1>
+    
+    <div id="chatBox"></div>
+    <h2><div id="Hints">Ask me...</div></h2>
+    <div id="suggestionsContainer"></div>
+    
+<div class="speaker-container">
+    <input type="checkbox" id="speechToggle" 
+           style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);" 
+           role="switch">
+    <label for="speechToggle" class="toggle-label">
+        <span id="speakerIcon" class="speaker -off"></span>
+        <span id="toggleDescription">Read out loud</span>
+    </label>
+</div>
+    <div class="chatInputContainer">
+        <input type="text" id="messageInput" placeholder="Typ een bericht...">
+        <button id="sendButton">Send</button>
+    </div>
+</div>
+
+<noscript>
+    <p>JavaScript is disabled in your browser. Please enable JavaScript to use this application.</p>
+</noscript>
+
+</body>
+</html>

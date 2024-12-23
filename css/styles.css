@@ -1,0 +1,444 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
+}
+
+.centered-logo {
+   width: 200px; /* Verklein het logo */
+    height: auto;
+}
+
+#loginContainer, #chatContainer {
+    width: 400px;
+    max-width: 90%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#chatContainer {
+    display: none;
+    width: 90%;
+    max-width: 800px;
+    flex-direction: column;
+    align-items: stretch;
+    height: 80vh;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #fb4c4c;
+}
+
+#loginContainer input[type="text"], #loginContainer input[type="password"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#loginContainer input[type="text"]::placeholder,
+#loginContainer input[type="password"]::placeholder {
+    color: #999; 
+    font-size: 0.8rem; 
+    opacity: 0.5; 
+}
+
+#rememberContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#rememberContainer label {
+    margin-left: 8px;
+    font-size: 14px;
+    color: #555;
+}
+
+button {
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    background-color: #fb4c4c;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: black;
+    color:white;
+}
+
+#chatTitle {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #fb4c4c;
+    margin-bottom: 15px;
+}
+
+#Hints {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: left;
+    color: #fb4c4c;
+    margin-left: 15px;
+}
+
+#chatBox {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: scroll;
+    background-color: #f3f3f3;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 15px;
+    margin: 8px 0;
+    font-size: 1rem;
+    max-width: 75%;
+    animation: slideIn 0.3s ease-out;
+}
+
+.user {
+    background-color: #fb4c4c;
+    border: 1px solid black;
+    text-align: right;
+    line-height: 1.5;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    display: inline-block;
+    word-wrap: break-word;
+    border-radius: 15px;
+    float: right;
+    clear: both;
+}
+
+.ovos {
+    background-color: black;
+    color: white;
+    text-align: left;
+    line-height: 1.5;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    display: inline-block;
+    word-wrap: break-word;
+    border-radius: 15px;
+    float: left;
+    clear: both;
+}
+
+.user-name {
+    text-align: right;
+    font-size: 0.9rem; /* Aangepast voor kleinere naamtekst */
+    color: #fb4c4c;
+    margin-right: 10px;
+    float: right;
+    clear: both;
+}
+
+.ovos-name {
+    text-align: left;
+    font-size: 0.9rem; /* Aangepast voor kleinere naamtekst */
+    color: #fb4c4c;
+    margin-left: 10px;
+    float: left;
+    clear: both;
+}
+
+.chatInputContainer {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#messageInput {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+#messageInput::placeholder {
+    color: #999; 
+    font-size: 0.8rem; 
+    opacity: 0.5; 
+}
+
+#sendButton {
+    width: 100px;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #fb4c4c;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+#suggestionsContainer {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin-top: 5px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.suggestion {
+    padding: 8px 15px;
+    margin: 5px;
+    font-size: 1rem;
+    color: black;
+    background-color: #fb4c4c;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    flex: 1;
+    min-width: 75px;
+}
+
+.suggestion:hover, focus {
+    color: white;
+    background-color: black;
+}
+
+@media (max-width: 600px) {
+    #loginContainer, #chatContainer {
+        width: 90%;
+        padding: 10px;
+    }
+
+    h2, #chatTitle {
+        font-size: 20px;
+    }
+
+    .suggestion {
+        font-size: 0.9rem;
+        padding: 5px 10px;
+    }
+
+    button, #sendButton {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .user {
+        font-size: 1rem; /* Verklein de tekstgrootte voor .user */
+    }
+
+    .ovos {
+        font-size: 1rem; /* Verklein de tekstgrootte voor .ovos */
+    }
+
+    .user-name {
+        font-size: 0.8rem; /* Verklein de naamtekst */
+    }
+
+    .ovos-name {
+        font-size: 0.8rem; /* Verklein de naamtekst */
+    }
+}
+
+.speaker {
+    vertical-align: middle;
+    box-sizing: border-box;
+    display: inline-block;
+    background: currentColor;
+    background-clip: content-box;
+    width: 1em;
+    height: 1em;
+    border: .333em solid transparent;
+    border-right-color: currentColor;
+    position: relative;
+    left: -.337em;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    margin-top:5px;
+}
+
+.speaker.-on:before,
+.speaker.-on:after {
+    content: '';
+    background: currentColor;
+    width: .1em;
+    position: absolute;
+}
+
+.speaker.-on:before {
+    height: .333em;
+    right: -.533em;
+}
+
+.speaker.-on:after {
+    height: .667em;
+    right: -.733em;
+    top: -50%;
+}
+
+.speaker.-off:before,
+.speaker.-off:after {
+    content: '';
+    background: black;
+    border: 0.5px solid;
+    width: .1em;
+    position: absolute;
+    height: 1.2em;
+    margin-top: -.333em;
+    top: -.1em;
+    left: .1em;
+    transform: translateX(.333em) rotate(-45deg);
+}
+
+.toggle-label {
+    cursor: pointer;
+    color: #fb4c4c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.toggle-label > .text {
+    font-size: 14px;
+}
+
+.toggle-label .speaker {
+    font-size: 20px;
+}
+
+.toggle {
+    width: 36px;
+    height: 20px;
+    border-radius: 50px;
+    background-color: black;
+    position: relative;
+    margin-top: 5px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.toggle:before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease;
+}
+
+.toggle:checked {
+    background-color: #314b9d;
+}
+
+.toggle:checked:before {
+    transform: translateX(16px);
+}
+
+@media (max-width: 400px) {
+    .suggestion {
+        font-size: 0.8rem;
+        padding: 4px 10px;
+        flex: 1 0 30%; /* Zorgt ervoor dat alle suggesties netjes binnen het scherm passen */
+        text-align: center;
+    }
+
+    .centered-logo {
+        width: 120px;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    #chatTitle {
+        padding: 5px 0;
+        margin: 10px 0;
+        font-size: 1rem;
+    }
+
+    #Hints {
+        margin: 5px 15px;
+        padding-top: 5px;
+        font-size: 1rem;
+    }
+
+    #chatContainer {
+        padding: 10px;
+        height: 115vh;
+    }
+
+    #chatBox {
+        height: 100vh;
+        overflow-y: auto;
+    }
+
+    #suggestionsContainer {
+        display: flex;
+        flex-wrap: wrap; /* Zorg dat suggesties netjes in meerdere rijen worden geplaatst */
+        justify-content: center; /* Center de suggesties */
+        gap: 5px; /* Ruimte tussen suggesties */
+        margin-bottom: 20px; /* Ruimte onder de suggesties */
+    }
+
+    .user {
+        font-size: 1rem;
+    }
+
+    .ovos {
+        font-size: 1rem;
+    }
+
+    .user-name {
+        font-size: 0.8rem;
+    }
+
+    .ovos-name {
+        font-size: 0.8rem;
+    }
+
+    .toggle-label {
+        flex-direction: column; /* Zorg dat de voorleesknop en tekst boven elkaar staan */
+        align-items: center;
+        margin-top: 20px; /* Meer ruimte boven de voorleesknop */
+    }
+
+    .toggle {
+        margin-top: 10px; /* Zorg dat de knop loskomt van de tekst erboven */
+    }
+}
